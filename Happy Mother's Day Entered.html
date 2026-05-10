@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Happy Mother's Day - Select Flowers</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -157,18 +157,83 @@
     .checkbox:checked + .checkmark::after {
       transform: rotate(-45deg) scale(1);
     }
+
+    /* ========== 手机端适配 ========== */
+    @media (max-width: 768px) {
+      body {
+        padding: 12px 0;
+      }
+      .page-border::before,
+      .page-border::after {
+        inset: 6px;
+        border-radius: 28px;
+      }
+      .page-border::after {
+        inset: 12px;
+      }
+      .top-bar {
+        padding: 16px 20px;
+        margin-bottom: 6px;
+      }
+      .top-btn {
+        width: auto;
+        min-height: 2.4rem;
+        padding: 0 20px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+      }
+      .flower-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        width: 94%;
+        padding: 6px 8px;
+      }
+      .flower-item {
+        gap: 4px;
+        padding: 4px 2px;
+      }
+      .flower-svg {
+        max-width: 80px;
+      }
+      .checkbox-container {
+        width: 26px;
+        height: 26px;
+      }
+      .checkmark {
+        border-radius: 6px;
+      }
+      .checkmark::after {
+        width: 12px;
+        height: 9px;
+        border-width: 0 0 2px 2px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .flower-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+      }
+      .flower-svg {
+        max-width: 70px;
+      }
+      .top-btn {
+        padding: 0 16px;
+        font-size: 0.85rem;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="page-border"></div>
   <div class="top-bar">
-    <a class="top-btn" href="C:\Users\wx\Desktop\Happy Monther's Day.html">返回</a>
+    <a class="top-btn" href="index.html">返回</a>
     <button class="top-btn" onclick="goBouquet()">选好了</button>
   </div>
   <section class="flower-grid">
     <!-- 1. rose -->
     <div class="flower-item">
-      <svg class="flower-svg" class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
+      <svg class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
         <g>
           <path d="M50 62 Q48 78 50 94 Q52 110 50 128" stroke="#5a9e4a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
           <ellipse cx="40" cy="88" rx="10" ry="5.5" fill="#6bb55a" transform="rotate(-25 40 88)"/>
@@ -186,7 +251,7 @@
     </div>
     <!-- 2. tulip -->
     <div class="flower-item">
-      <svg class="flower-svg" class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
+      <svg class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
         <g>
           <path d="M50 62 Q48 78 50 94 Q52 110 50 128" stroke="#5a9e4a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
           <ellipse cx="40" cy="88" rx="10" ry="5.5" fill="#6bb55a" transform="rotate(-25 40 88)"/>
@@ -202,7 +267,7 @@
     </div>
     <!-- 3. sunflower -->
     <div class="flower-item">
-      <svg class="flower-svg" class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
+      <svg class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
         <g>
           <path d="M50 66 Q48 82 50 98 Q52 114 50 128" stroke="#5a9e4a" stroke-width="4" fill="none" stroke-linecap="round"/>
           <ellipse cx="38" cy="92" rx="11" ry="6" fill="#6bb55a" transform="rotate(-25 38 92)"/>
@@ -233,7 +298,7 @@
     </div>
     <!-- 4. lily -->
     <div class="flower-item">
-      <svg class="flower-svg" class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
+      <svg class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
         <g>
           <path d="M50 62 Q48 78 50 94 Q52 110 50 128" stroke="#5a9e4a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
           <ellipse cx="60" cy="88" rx="10" ry="5.5" fill="#6bb55a" transform="rotate(25 60 88)"/>
@@ -256,7 +321,7 @@
     </div>
     <!-- 5. carnation -->
     <div class="flower-item">
-      <svg class="flower-svg" class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
+      <svg class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
         <g>
           <path d="M50 62 Q48 78 50 94 Q52 110 50 128" stroke="#5a9e4a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
           <ellipse cx="40" cy="88" rx="10" ry="5.5" fill="#6bb55a" transform="rotate(-25 40 88)"/>
@@ -277,7 +342,7 @@
     </div>
     <!-- 6. daisy -->
     <div class="flower-item">
-      <svg class="flower-svg" class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
+      <svg class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
         <g>
           <path d="M50 52 Q48 78 50 94 Q52 110 50 128" stroke="#5a9e4a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
           <ellipse cx="40" cy="88" rx="10" ry="5.5" fill="#6bb55a" transform="rotate(-25 40 88)"/>
@@ -310,7 +375,7 @@
     </div>
     <!-- 7. lavender -->
     <div class="flower-item">
-      <svg class="flower-svg" class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
+      <svg class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
         <g>
           <path d="M50 66 Q48 82 50 98 Q52 114 50 128" stroke="#5a9e4a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
           <ellipse cx="38" cy="92" rx="10" ry="5.5" fill="#6bb55a" transform="rotate(-25 38 92)"/>
@@ -335,7 +400,7 @@
     </div>
     <!-- 8. jasmine -->
     <div class="flower-item">
-      <svg class="flower-svg" class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
+      <svg class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
         <g>
           <path d="M50 62 Q48 78 50 94 Q52 110 50 128" stroke="#5a9e4a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
           <ellipse cx="60" cy="88" rx="10" ry="5.5" fill="#6bb55a" transform="rotate(25 60 88)"/>
@@ -358,7 +423,7 @@
     </div>
     <!-- 9. lotus -->
     <div class="flower-item">
-      <svg class="flower-svg" class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
+      <svg class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
         <g>
           <path d="M50 66 Q48 82 50 98 Q52 114 50 128" stroke="#5a9e4a" stroke-width="4" fill="none" stroke-linecap="round"/>
           <ellipse cx="32" cy="96" rx="13" ry="7" fill="#6bb55a" transform="rotate(-16 32 86)"/>
@@ -392,7 +457,7 @@
     </div>
     <!-- 10. peach -->
     <div class="flower-item">
-      <svg class="flower-svg" class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
+      <svg class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
         <g>
           <path d="M50 62 Q48 78 50 94 Q52 110 50 128" stroke="#8b7355" stroke-width="3.5" fill="none" stroke-linecap="round"/>
           <path d="M50 70 Q64 62 76 54" stroke="#8b7355" stroke-width="2.5" fill="none" stroke-linecap="round"/>
@@ -415,7 +480,7 @@
     </div>
     <!-- 11. osmanthus -->
     <div class="flower-item">
-      <svg class="flower-svg" class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
+      <svg class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
         <g>
           <path d="M50 66 Q48 82 50 98 Q52 114 50 128" stroke="#8b7355" stroke-width="3.5" fill="none" stroke-linecap="round"/>
           <path d="M50 70 Q34 62 22 54" stroke="#8b7355" stroke-width="2.5" fill="none" stroke-linecap="round"/>
@@ -460,7 +525,7 @@
     </div>
     <!-- 12. azalea -->
     <div class="flower-item">
-      <svg class="flower-svg" class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
+      <svg class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
         <g>
           <path d="M50 62 Q48 78 50 94 Q52 110 50 128" stroke="#5a9e4a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
           <ellipse cx="40" cy="88" rx="10" ry="5.5" fill="#6bb55a" transform="rotate(-25 40 88)"/>
@@ -483,7 +548,7 @@
     </div>
     <!-- 13. hydrangea -->
     <div class="flower-item">
-      <svg class="flower-svg" class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
+      <svg class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
         <g>
           <path d="M50 66 Q48 82 50 98 Q52 114 50 128" stroke="#5a9e4a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
           <ellipse cx="38" cy="96" rx="11" ry="6" fill="#6bb55a" transform="rotate(-25 38 96)"/>
@@ -512,7 +577,7 @@
     </div>
     <!-- 14. violet -->
     <div class="flower-item">
-      <svg class="flower-svg" class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
+      <svg class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
         <g>
           <path d="M50 62 Q48 78 50 94 Q52 110 50 128" stroke="#5a9e4a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
           <ellipse cx="40" cy="88" rx="10" ry="5.5" fill="#6bb55a" transform="rotate(-25 40 88)"/>
@@ -535,7 +600,7 @@
     </div>
     <!-- 15. lilac -->
     <div class="flower-item">
-      <svg class="flower-svg" class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
+      <svg class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
         <g>
           <path d="M50 66 Q48 82 50 98 Q52 114 50 128" stroke="#5a9e4a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
           <ellipse cx="38" cy="96" rx="11" ry="6" fill="#6bb55a" transform="rotate(-25 38 96)"/>
