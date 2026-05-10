@@ -10,13 +10,9 @@
       margin: 0;
       padding: 0;
     }
-    html {
-      font-size: 16px;
-    }
     body {
       position: relative;
       min-height: 100vh;
-      min-height: 100dvh;
       background: #ffe4e9;
       font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
       display: flex;
@@ -24,16 +20,15 @@
       align-items: center;
       color: #d44f78;
       overflow: hidden;
-      padding: 16px 0;
+      padding: 24px 0;
     }
     .page {
-      width: 92%;
-      max-width: 420px;
+      width: min(96%, 520px);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: calc(100dvh - 32px);
-      padding: 20px 14px;
+      min-height: calc(100vh - 48px);
+      padding: 24px 18px;
     }
     .page-border {
       position: absolute;
@@ -45,27 +40,27 @@
     .page-border::after {
       content: "";
       position: absolute;
-      inset: 8px;
-      border-radius: 32px;
+      inset: 10px;
+      border-radius: 42px;
     }
     .page-border::before {
       border: 1px solid #ff8fb3;
-      box-shadow: 0 0 0 8px rgba(255, 182, 203, 0.22);
+      box-shadow: 0 0 0 10px rgba(255, 182, 203, 0.22);
       background-image:
-        radial-gradient(circle at 14px 14px, rgba(255, 179, 201, 0.85) 0%, rgba(255, 179, 201, 0) 42%),
-        radial-gradient(circle at calc(100% - 14px) 14px, rgba(255, 179, 201, 0.85) 0%, rgba(255, 179, 201, 0) 42%),
-        radial-gradient(circle at 14px calc(100% - 14px), rgba(255, 179, 201, 0.85) 0%, rgba(255, 179, 201, 0) 42%),
-        radial-gradient(circle at calc(100% - 14px) calc(100% - 14px), rgba(255, 179, 201, 0.85) 0%, rgba(255, 179, 201, 0) 42%);
+        radial-gradient(circle at 18px 18px, rgba(255, 179, 201, 0.85) 0%, rgba(255, 179, 201, 0) 42%),
+        radial-gradient(circle at calc(100% - 18px) 18px, rgba(255, 179, 201, 0.85) 0%, rgba(255, 179, 201, 0) 42%),
+        radial-gradient(circle at 18px calc(100% - 18px), rgba(255, 179, 201, 0.85) 0%, rgba(255, 179, 201, 0) 42%),
+        radial-gradient(circle at calc(100% - 18px) calc(100% - 18px), rgba(255, 179, 201, 0.85) 0%, rgba(255, 179, 201, 0) 42%);
       background-repeat: no-repeat;
     }
     .page-border::after {
-      inset: 14px;
+      inset: 18px;
       border: 1px solid #d9acb6;
       background-image:
-        radial-gradient(circle at 12px 12px, rgba(217, 172, 182, 0.8) 0%, rgba(217, 172, 182, 0) 40%),
-        radial-gradient(circle at calc(100% - 12px) 12px, rgba(217, 172, 182, 0.8) 0%, rgba(217, 172, 182, 0) 40%),
-        radial-gradient(circle at 12px calc(100% - 12px), rgba(217, 172, 182, 0.8) 0%, rgba(217, 172, 182, 0) 40%),
-        radial-gradient(circle at calc(100% - 12px) calc(100% - 12px), rgba(217, 172, 182, 0.8) 0%, rgba(217, 172, 182, 0) 40%);
+        radial-gradient(circle at 16px 16px, rgba(217, 172, 182, 0.8) 0%, rgba(217, 172, 182, 0) 40%),
+        radial-gradient(circle at calc(100% - 16px) 16px, rgba(217, 172, 182, 0.8) 0%, rgba(217, 172, 182, 0) 40%),
+        radial-gradient(circle at 16px calc(100% - 16px), rgba(217, 172, 182, 0.8) 0%, rgba(217, 172, 182, 0) 40%),
+        radial-gradient(circle at calc(100% - 16px) calc(100% - 16px), rgba(217, 172, 182, 0.8) 0%, rgba(217, 172, 182, 0) 40%);
       background-repeat: no-repeat;
     }
     .page,
@@ -79,48 +74,52 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      flex: 1;
-      padding: 20px 0;
+      height: 56vh;
     }
     .hero h1 {
-      font-size: 2.8rem;
-      line-height: 1.3;
+      font-size: clamp(4.5rem, 8vw, 6rem);
+      line-height: 2;
       text-align: center;
-      letter-spacing: 0.02em;
-      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.2rem;
       font-family: "Brush Script MT", "Lucida Handwriting", "Segoe Print", cursive;
-      text-shadow: 2px 2px 6px rgba(128, 128, 128, 0.35);
+      text-shadow: 3px 3px 9px rgba(128, 128, 128, 0.45);
     }
     .hero h1 span {
       display: block;
     }
     .hero h1 span.line2 {
       white-space: nowrap;
-      font-size: 2.2rem;
     }
     .hero .subtitle {
-      font-size: 0.95rem;
+      font-size: clamp(1.1rem, 2vw, 1.6rem);
       color: #d2697a;
-      margin-top: 0.5rem;
+      margin-top: 0.3rem;
     }
     .controls {
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      padding-bottom: 8px;
+      justify-content: flex-start;
+      height: auto;
+      gap: 22px;
+      padding-bottom: 12px;
+      margin-top: -1rem;
     }
     .input-card {
       background: #f2f2f2;
-      border-radius: 20px;
-      padding: 14px 16px;
+      border-radius: 24px;
+      padding: 18px 20px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 12px;
+      min-height: 6rem;
       width: 100%;
+      position: relative;
+      top: -0.25rem;
     }
     .input-card label {
       color: #666;
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
     .input-card input {
       width: 100%;
@@ -128,8 +127,8 @@
       outline: none;
       background: transparent;
       font-size: 1rem;
-      padding: 10px 12px;
-      border-radius: 14px;
+      padding: 12px 14px;
+      border-radius: 16px;
       background: #ffffff;
       box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.08);
       color: #333;
@@ -138,28 +137,99 @@
       color: #aaa;
     }
     .btn-card {
-      width: 60%;
-      max-width: 200px;
-      min-height: 3.2rem;
+      width: 50%;
+      min-height: 6rem;
       align-self: center;
       background: #ffbdc9;
-      border-radius: 24px;
+      border-radius: 28px;
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      transition: transform 0.2s ease, background-color 0.2s ease;
+      transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
       border: none;
       color: #ffffff;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 700;
+      transform-origin: center;
+      position: relative;
+      top: 0.25rem;
     }
-    .btn-card:active {
-      transform: scale(0.97);
+    .btn-card:hover,
+    .btn-card:focus {
+      transform: scale(1.03);
       background: #ff93b5;
+      color: #ffffff;
+      outline: none;
     }
-    
-    /* 小屏幕手机适配 */
+
+    /* ========== 手机端适配 ========== */
+    @media (max-width: 768px) {
+      body {
+        padding: 16px 0;
+      }
+      .page {
+        width: 92%;
+        max-width: 420px;
+        min-height: calc(100vh - 32px);
+        padding: 20px 14px;
+      }
+      .page-border::before,
+      .page-border::after {
+        inset: 8px;
+        border-radius: 32px;
+      }
+      .page-border::after {
+        inset: 14px;
+      }
+      .hero {
+        height: auto;
+        flex: 1;
+        padding: 20px 0;
+      }
+      .hero h1 {
+        font-size: 2.8rem;
+        line-height: 1.3;
+        letter-spacing: 0.02em;
+        margin-bottom: 0.5rem;
+        text-shadow: 2px 2px 6px rgba(128, 128, 128, 0.35);
+      }
+      .hero h1 span.line2 {
+        font-size: 2.2rem;
+      }
+      .controls {
+        gap: 16px;
+        padding-bottom: 8px;
+        margin-top: 0;
+      }
+      .input-card {
+        padding: 14px 16px;
+        gap: 8px;
+        min-height: auto;
+        top: 0;
+      }
+      .input-card label {
+        font-size: 0.9rem;
+      }
+      .input-card input {
+        padding: 10px 12px;
+        border-radius: 14px;
+      }
+      .btn-card {
+        width: 60%;
+        max-width: 200px;
+        min-height: 3.2rem;
+        border-radius: 24px;
+        font-size: 1.1rem;
+        top: 0;
+      }
+      .btn-card:active {
+        transform: scale(0.97);
+        background: #ff93b5;
+      }
+    }
+
+    /* 小屏幕手机 */
     @media (max-width: 380px) {
       .hero h1 {
         font-size: 2.4rem;
@@ -170,16 +240,6 @@
       .page {
         width: 94%;
         padding: 16px 12px;
-      }
-    }
-    
-    /* 大屏幕手机 */
-    @media (min-width: 430px) {
-      .hero h1 {
-        font-size: 3.2rem;
-      }
-      .hero h1 span.line2 {
-        font-size: 2.6rem;
       }
     }
   </style>
