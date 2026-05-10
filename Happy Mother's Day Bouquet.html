@@ -2,11 +2,11 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Happy Mother's Day - Bouquet</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-html, body {
+    html, body {
       min-height: 100vh;
       background: #ffe4e9;
       font-family: "Brush Script MT", cursive;
@@ -107,8 +107,6 @@ html, body {
       width: 100%;
       height: 100%;
     }
-    
-    /* 信封整体定位 */
     .envelope-box {
       position: absolute;
       top: 50%;
@@ -118,8 +116,6 @@ html, body {
       height: 250px;
       pointer-events: none;
     }
-    
-    /* 信封翻开盖子 - 花朵后面，信封主体上面 */
     .envelope-flap {
       position: absolute;
       top: -150px;
@@ -131,8 +127,6 @@ html, body {
       border-radius: 0 0 10px 10px;
       z-index: 4.5;
     }
-    
-    /* 信封主体 - 最上层（矩形，遮住花杆）*/ 
     .envelope-body {
       position: absolute;
       top: 20px;
@@ -145,24 +139,7 @@ html, body {
         0 25px 60px rgba(0, 0, 0, 0.25),
         0 10px 25px rgba(0, 0, 0, 0.15);
       z-index: 9;
-      
     }
-    
-   /*  信封开口V形 
-    .envelope-opening {
-      position: absolute;
-      top: 100;
-      left: 100;
-      width: 100%;
-      height: 100px;
-      background: linear-gradient(-180deg, #f0e0c0 0%, #fdf6e3 100%);
-      clip-path: polygon(0 0, 50% 100%, 100% 0);
-      z-index: 10;
-    }*/
-
-    
-    
-    /* 爱心封口贴 */
     .heart-sticker {
       position: absolute;
       left: 50%;
@@ -173,14 +150,11 @@ html, body {
       z-index: 10;
       filter: drop-shadow(0 4px 12px rgba(255, 107, 157, 0.5));
     }
-    
     .heart-sticker svg {
       width: 100%;
       height: 100%;
       fill: #ff6b9d;
     }
-
-    /* 花朵层 - 中间层 */
     .flowers-layer {
       position: absolute;
       top: 50%;
@@ -190,7 +164,6 @@ html, body {
       height: 160px;
       z-index: 0;
     }
-
     .bouquet-flower {
       position: absolute;
       opacity: 0;
@@ -198,7 +171,6 @@ html, body {
       transform-origin: 50% 100%;
       z-index: 0;
     }
-    
     @keyframes bloomUp {
       from { 
         opacity: 0; 
@@ -209,13 +181,91 @@ html, body {
         transform: var(--base-transform) scale(var(--scale)) translateY(0); 
       }
     }
-    
     .bouquet-flower svg {
       width: 100%;
       height: 100%;
     }
-  
-    
+
+    /* ========== 手机端适配 ========== */
+    @media (max-width: 768px) {
+      body {
+        padding: 12px 0;
+      }
+      .page-border::before,
+      .page-border::after {
+        inset: 6px;
+        border-radius: 28px;
+      }
+      .page-border::after {
+        inset: 12px;
+      }
+      .content {
+        padding: 16px 20px;
+        height: 100vh;
+        min-height: 100vh;
+      }
+      .top-left {
+        font-size: 1.8rem;
+        margin-left: 10px;
+        margin-top: 20px;
+      }
+      .bottom-center {
+        font-size: 2.8rem;
+        bottom: 30px;
+        margin-bottom: 20px;
+      }
+      .bottom-right {
+        font-size: 1.2rem;
+        margin-right: 10px;
+        margin-bottom: 20px;
+      }
+      .bouquet-area {
+        width: 95vw;
+        height: 50vh;
+      }
+      .envelope-box {
+        width: 220px;
+        height: 160px;
+      }
+      .envelope-flap {
+        top: -95px;
+        height: 110px;
+      }
+      .envelope-body {
+        top: 12px;
+      }
+      .heart-sticker {
+        width: 50px;
+        height: 50px;
+      }
+      .flowers-layer {
+        width: 140px;
+        height: 100px;
+      }
+      .bouquet-flower {
+        width: 90px !important;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .top-left {
+        font-size: 1.5rem;
+      }
+      .bottom-center {
+        font-size: 2.2rem;
+      }
+      .envelope-box {
+        width: 190px;
+        height: 140px;
+      }
+      .envelope-flap {
+        top: -80px;
+        height: 95px;
+      }
+      .bouquet-flower {
+        width: 75px !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -224,20 +274,12 @@ html, body {
     <div class="top-left" id="greeting"></div>
     <div class="bouquet-area" id="bouquet">
       <div class="bouquet-wrapper">
-        <!-- 信封上盖打开 - 最下层 z-index: 1 -->
         <div class="envelope-box">
           <div class="envelope-flap"></div>
-          <div class="envelope-top-flap"></div>
         </div>
-        
-        <!-- 花朵层 - 中间层 z-index: 3 -->
         <div class="flowers-layer" id="flowersLayer"></div>
-        
-        <!-- 信封主体 - 最上层 z-index: 5-7 -->
         <div class="envelope-box">
-        
           <div class="envelope-body"></div>
-          <div class="envelope-opening"></div>
           <div class="heart-sticker">
             <svg viewBox="0 0 24 24">
               <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
@@ -247,7 +289,7 @@ html, body {
       </div>
     </div>
     <div class="bottom-center">母亲节快乐</div>
-    <div class="bottom-right">王幸</div>
+    <div class="bottom-right" id="signature">王幸</div>
   </div>
   
   <script>
@@ -269,6 +311,9 @@ html, body {
     };
     
     document.getElementById('greeting').textContent = titleMap[name] || '';
+    if (name) {
+      document.getElementById('signature').textContent = name;
+    }
     
     var flowerSVGs = {
       rose: `<svg class="flower-svg" viewBox="0 0 100 135" preserveAspectRatio="xMidYMax meet">
@@ -582,7 +627,6 @@ html, body {
     var flowersLayer = document.getElementById('flowersLayer');
     var allFlowers = [];
     
-    // 收集所有花朵
     selectedFlowers.forEach(function(flowerId) {
       var svg = flowerSVGs[flowerId];
       if (!svg) return;
@@ -602,7 +646,6 @@ html, body {
       return array;
     }
 
-    // 避免相邻相同花朵
     function avoidAdjacentSame(flowers) {
       for (var i = 1; i < flowers.length; i++) {
         if (flowers[i].flowerId === flowers[i - 1].flowerId) {
@@ -623,11 +666,9 @@ html, body {
       return flowers;
     }
 
-    // 智能排列：先随机一朵，然后中间随机排列（避免相邻），最后再随机选一朵
     function smartArrange(flowers) {
       if (flowers.length <= 2) return flowers;
       
-      // 分离不同种类的花
       var types = {};
       flowers.forEach(function(f) {
         if (!types[f.flowerId]) types[f.flowerId] = [];
@@ -637,31 +678,24 @@ html, body {
       var typeKeys = Object.keys(types);
       var result = [];
       
-      // 随机选第一朵
       var firstTypeIdx = Math.floor(Math.random() * typeKeys.length);
       var firstType = typeKeys[firstTypeIdx];
       var firstFlower = types[firstType].shift();
       result.push(firstFlower);
       
-      // 如果该类型还有剩余，放回去
       if (types[firstType].length === 0) {
         delete types[firstType];
         typeKeys.splice(firstTypeIdx, 1);
       }
       
-      // 收集剩余所有花
       var remaining = [];
       typeKeys.forEach(function(key) {
         remaining = remaining.concat(types[key]);
       });
       
-      // 洗牌
       shuffle(remaining);
-      
-      // 避免相邻相同
       avoidAdjacentSame(remaining);
       
-      // 如果剩余的第一朵和第一朵相同，尝试交换
       if (remaining.length > 0 && remaining[0].flowerId === firstFlower.flowerId) {
         for (var k = 1; k < remaining.length; k++) {
           if (remaining[k].flowerId !== firstFlower.flowerId) {
@@ -673,10 +707,8 @@ html, body {
         }
       }
       
-      // 中间部分
       result = result.concat(remaining);
       
-      // 随机选最后一朵（确保不和倒数第二朵相同）
       var lastCandidates = [];
       flowers.forEach(function(f) {
         if (f.flowerId !== result[result.length - 1].flowerId) {
@@ -684,7 +716,6 @@ html, body {
         }
       });
       
-      // 如果没有不同种类的，就从所有花里随机选一个（可能相同）
       if (lastCandidates.length === 0) {
         lastCandidates = flowers;
       }
@@ -703,22 +734,17 @@ html, body {
       div.className = 'bouquet-flower';
       div.innerHTML = flower.svg;
       
-      // 花朵从信封顶部开口处向上冒出来，紧凑排列
       var rotate = (index - (totalFlowers - 1) / 2) * 10 + (Math.random() - 0.5) * 5;
       var scale = 1.1 + Math.random() * 0.6;
       
-      // 紧凑排列，从信封顶部开口处开始
       var spreadX = (index - (totalFlowers - 1) / 2) * 14;
       
-      // 花大一点：宽度70px
       div.style.width = '140px';
       div.style.height = 'auto';
       div.style.left = '50%';
-      // 从信封顶部开口处开始（信封高度160，开口在顶部）
       div.style.bottom = '60%'; 
       div.style.marginLeft = spreadX + 'px';
       
-      // 动画延迟 - 按顺序出现
       div.style.animationDelay = (index * 0.3) + 's';
       div.style.setProperty('--base-transform', 'translate(-50%, 0) rotate(' + rotate + 'deg)');
       div.style.setProperty('--scale', scale);
